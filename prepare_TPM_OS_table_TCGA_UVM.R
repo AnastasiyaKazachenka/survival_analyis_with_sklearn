@@ -1,4 +1,5 @@
-setwd("~/ML_course/Lasso_Cox")
+TCG_UVM <- readRDS("./data/TCG_UVM.rds")
+clinical <- readRDS("./data/clinical.rds")
 
 expres <- TCGA_UVM[rowSums(TCGA_UVM[,c(3:82)]>5) > 20,]
 expres <- as.data.frame(expres)
@@ -23,4 +24,4 @@ uvm <- uvm %>%
 row.names(uvm) <- uvm$Row.names
 uvm$Row.names <- NULL
 
-write.csv(uvm,file="TPMs_OS_TCGA_UVM.csv")
+write.csv(uvm,file="./data/TPMs_OS_TCGA_UVM.csv")
